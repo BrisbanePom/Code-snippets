@@ -6,6 +6,12 @@
 dfX <- dfY %>%
   pivot_wider(names_from = DescriptorField, values_from = ValueField) %>%
   replace_na(list(N = 0, Y = 0))
+  mutate(Type = case_when(
+                          height > 200 | mass > 200 ~ "large",
+                          species == "Droid"        ~ "robot",
+                          TRUE                      ~ "other"
+                        )
+         )
 
 
 #Purrr constructs
