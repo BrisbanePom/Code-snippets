@@ -1,7 +1,29 @@
 #Code snippets that are useful
 
 
-#Utilities
+#Dplyr + Tidyr constructs
+#===================================================================================
+dfX <- dfY %>%
+  pivot_wider(names_from = DescriptorField, values_from = ValueField) %>%
+  replace_na(list(N = 0, Y = 0))
+
+
+#Purrr constructs
+#===================================================================================
+
+
+#Function template
+
+
+
+
+
+
+
+
+#General Utilities
+#===================================================================================
+
 
 #Hide dplyr summarisation warning
 options(dplyr.summarise.inform=F) 
