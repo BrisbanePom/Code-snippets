@@ -1,0 +1,4 @@
+#Power BI
+
+Changing user security
+https://docs.microsoft.com/en-us/power-bi/admin/service-admin-rls
