@@ -31,9 +31,16 @@ mutate(Month_Relative = round(as.numeric(difftime(Date1, Date2, units = "days")*
 
 
 #Function template
-
-
-
+#===================================================================================
+fctn.XYZ = function(Param1,
+                  Param2 = param2.values)
+{
+  
+  #Code goes in here
+  Output <- Param1
+    
+  return(Output)
+}
 
 
 
