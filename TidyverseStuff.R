@@ -4,15 +4,19 @@
 #Dplyr + Tidyr constructs
 #===================================================================================
 dfX <- dfY %>%
-  pivot_wider(names_from = DescriptorField, values_from = ValueField) %>%
-  replace_na(list(N = 0, Y = 0))
-  mutate(Type = case_when(
-                          height > 200 | mass > 200 ~ "large",
-                          species == "Droid"        ~ "robot",
-                          TRUE                      ~ "other"
-                        )
-         )
-
+  #Pivot Wider / Pivot Longer
+    pivot_wider(names_from = DescriptorField, values_from = ValueField) %>%
+  #Replace NAs with a numerical value
+    replace_na(list(N = 0, Y = 0))
+  #Case / When
+    mutate(Type = case_when(
+                            height > 200 | mass > 200 ~ "large",
+                            species == "Droid"        ~ "robot",
+                            TRUE                      ~ "other"
+                          )
+           )
+  #Remove all fields of a particular type
+    select_if(~!is.numeric(.))
 
 #Lubridate stuff
 #===================================================================================
