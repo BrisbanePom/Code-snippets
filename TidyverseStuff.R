@@ -14,6 +14,14 @@ dfX <- dfY %>%
          )
 
 
+#Lubridate stuff
+#===================================================================================
+
+#Create integer of number of months difference between two dates
+mutate(Month_Relative = round(as.numeric(difftime(Date1, Date2, units = "days")*12/365.25))) 
+
+
+
 #Purrr constructs
 #===================================================================================
 
