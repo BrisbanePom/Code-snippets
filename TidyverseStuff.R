@@ -18,6 +18,12 @@ dfX <- dfY %>%
   #Remove all fields of a particular type
     select_if(~!is.numeric(.))
 
+  #Half finished / uncategorised...
+  distinct(FileID, .keep_all = TRUE) %>% 
+  mutate_at("Value1",as.character) %>% 
+  mutate_at(c("Val1", "Val2", "Val3"), factor)
+  mutate(across...)
+
 #Lubridate stuff
 #===================================================================================
 
