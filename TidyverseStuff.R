@@ -15,6 +15,8 @@ dfX <- dfY %>%
                             TRUE                      ~ "other"
                           )
            )
+  #Coalesce
+   mutate(Name = coalesce(Name1, Name2, Name3))
   #Remove all fields of a particular type
     select_if(~!is.numeric(.))
 
