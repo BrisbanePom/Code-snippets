@@ -30,9 +30,10 @@ dfX <- dfY %>%
 #===================================================================================
 
 #Create integer of number of months difference between two dates
-mutate(Month_Relative = round(as.numeric(difftime(Date1, Date2, units = "days")*12/365.25))) 
+ mutate(Month_Relative = round(as.numeric(difftime(Date1, Date2, units = "days")*12/365.25))) 
 
-
+#Read in a "01-May-2010" format character string
+ dmy(acc_org_fnd_dt)
 
 #Purrr constructs
 #===================================================================================
