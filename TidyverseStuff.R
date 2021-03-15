@@ -5,7 +5,8 @@
 #===================================================================================
 dfX <- dfY %>%
   #Pivot Wider / Pivot Longer
-    pivot_wider(names_from = DescriptorField, values_from = ValueField) %>%
+    pivot_wider(names_from = DescriptorField, values_from = ValueField)
+    pivot_longer(names_to = "Descriptor", values_to = "Value", cols=3:4)
   #Replace NAs with a numerical value
     replace_na(list(N = 0, Y = 0))
   #Case / When
