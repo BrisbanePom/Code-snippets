@@ -2,3 +2,13 @@
 
 Changing user security
 https://docs.microsoft.com/en-us/power-bi/admin/service-admin-rls
+
+#DAX equations
+
+#Count a subset of records that match a value.
+Count_RECA = SUMX(Collector_KPIRecourse
+  ,if(Collector_KPIRecourse[REC_Status] = "RECA"
+    ,calculate(COUNT(Collector_KPIRecourse[FileID]))
+    ,BLANK()
+))
+
