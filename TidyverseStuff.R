@@ -33,6 +33,9 @@ dfX <- dfY %>%
 #Create integer of number of months difference between two dates
  mutate(Month_Relative = round(as.numeric(difftime(Date1, Date2, units = "days")*12/365.25))) 
 
+#First day of month
+floor_date(full.date, "month")
+
 #Read in a "01-May-2010" format character string
  dmy(acc_org_fnd_dt)
 
