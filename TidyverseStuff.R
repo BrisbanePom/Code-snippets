@@ -21,6 +21,11 @@ dfX <- dfY %>%
   #Remove all fields of a particular type
     select_if(~!is.numeric(.))
 
+  # Count % of NA for all variables
+  summarise_all(funs(sum(is.na(.) | . == "") / length(.))) %>% 
+    pivot_longer(names_to = "Variable", values_to = "Propn.na", cols=1:100)
+
+
   #Half finished / uncategorised...
   distinct(FileID, .keep_all = TRUE) %>% 
   mutate_at("Value1",as.character) %>% 
@@ -62,6 +67,8 @@ fctn.XYZ = function(Param1,
 #General Utilities
 #===================================================================================
 
+#Extract values into a vector
+vec <- pull(df$VarValue)
 
 #Hide dplyr summarisation warning
 options(dplyr.summarise.inform=F) 
