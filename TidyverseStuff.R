@@ -30,7 +30,7 @@ dfX <- dfY %>%
   distinct(FileID, .keep_all = TRUE) %>% 
   mutate_at("Value1",as.character) %>% 
   mutate_at(c("Val1", "Val2", "Val3"), factor)
-  mutate(across...)
+  mutate(across(c("StringDate1", "StringDate2"), ~ymd(.)))
 
 #Lubridate stuff
 #===================================================================================
