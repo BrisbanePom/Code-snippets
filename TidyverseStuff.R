@@ -48,6 +48,20 @@ floor_date(full.date, "month")
 #===================================================================================
 
 
+#Read multiple csv files into a single data frame
+library(tidyverse)
+library(fs)
+
+#Set the directory
+mydir = "SubFolder"
+
+#Ingest all transactions records
+dfTransactions <- mydir %>% 
+                    dir_ls(regexp = paste(sep="", "^",mydir,"\\/StartText")) %>% 
+                    map_dfr(read_csv, .id = "FileExtract", col_types = cols(.default = "c"))
+
+
+
 #Function template
 #===================================================================================
 fctn.XYZ = function(Param1,
